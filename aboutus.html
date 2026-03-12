@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Company Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; line-height: 1.6; color: #333; background: #fff; }
+
+        /* Hero Section */
+        .hero {
+            height: 50vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('src/yus.jpg');
+            background-size: cover; background-position: center;
+            display: flex; align-items: center; justify-content: center; color: #fff; text-align: center;
+        }
+        .hero h1 { font-size: 3.5rem; text-transform: uppercase; letter-spacing: 3px; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* Main Content Grid */
+        .main-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; padding: 80px 0; }
+
+        h2 { font-size: 2.2rem; color: #1a1a1a; margin-bottom: 20px; border-left: 5px solid #0056b3; padding-left: 15px; }
+        h3 { font-size: 1.5rem; margin-bottom: 15px; color: #0056b3; }
+        p { margin-bottom: 20px; color: #555; text-align: justify; }
+
+        /* Why Us List */
+        .why-list { list-style: none; margin: 20px 0; }
+        .why-list li { margin-bottom: 12px; padding-left: 30px; position: relative; font-weight: 500; }
+        .why-list li::before { content: '✓'; position: absolute; left: 0; color: #0056b3; font-weight: bold; }
+
+        /* Side Card */
+        .side-card { background: #f8f9fa; padding: 30px; border-radius: 4px; border: 1px solid #eee; height: fit-content; }
+
+        /* Service Regions Tags */
+        .region-container { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+        .region-tag { background: #1a1a1a; color: #fff; padding: 5px 12px; font-size: 0.8rem; border-radius: 3px; }
+
+        /* Mission Section */
+        .mission-box { background: #1a1a1a; color: #fff; padding: 60px 0; margin-top: 40px; }
+        .mission-content { text-align: center; max-width: 800px; margin: 0 auto; }
+
+        /* Download Link */
+        .btn-pdf {
+            display: inline-block; background: #0056b3; color: #fff; padding: 15px 25px;
+            text-decoration: none; font-weight: bold; margin-top: 20px; border-radius: 2px; transition: 0.3s;
+        }
+        .btn-pdf:hover { background: #003d7a; }
+
+        @media (max-width: 992px) { .main-grid { grid-template-columns: 1fr; } .hero h1 { font-size: 2.5rem; } }
+    </style>
+</head>
+<body>
+
+<header class="hero">
+    <div class="container">
+        <h1>Corporate Profile</h1>
+    </div>
+</header>
+
+<div class="container">
+    <div class="main-grid">
+
+        <div class="content-left">
+            <h2>Our Enterprise</h2>
+            <p>In the marketplace, our enterprise has the support of a huge clientele that chooses to deal with us because of our consistent focus on quality as well as ethical business practices. Further, we take inspiration from our Delhi based sister concern, <strong>Global Engineering Works</strong>, engaged in dealing in a huge variety of containers. We aspire to match their speed of growth and become a leading name in the verticals we deal in.</p>
+
+            <h2 style="margin-top: 40px;">Why Us?</h2>
+            <p>Operating from Haryana, our enterprise has been working as a customer-oriented manufacturing expert. We have earned the trust of clients and have become their preferred choice in the competitive domain because of the following reasons:</p>
+            <ul class="why-list">
+                <li>Regular supervision of prompt deliveries for every consignment.</li>
+                <li>Perfect adherence to industrial guidelines and fair trade laws.</li>
+                <li>Uninterrupted compliance with stringent quality standards.</li>
+                <li>Customization of fabrications based on specific client demands.</li>
+                <li>Prioritizing client profits and satisfaction in every transaction.</li>
+            </ul>
+        </div>
+
+        <div class="content-right">
+            <div class="side-card">
+                <h3>Service Presence</h3>
+                <p>We are mainly dealing in the following regions:</p>
+                <div class="region-container">
+                    <span class="region-tag">Bihar</span><span class="region-tag">Chandigarh</span>
+                    <span class="region-tag">Chhattisgarh</span><span class="region-tag">Delhi</span>
+                    <span class="region-tag">Goa</span><span class="region-tag">Haryana</span>
+                    <span class="region-tag">Himachal Pradesh</span><span class="region-tag">J&K</span>
+                    <span class="region-tag">Madhya Pradesh</span><span class="region-tag">Meghalaya</span>
+                    <span class="region-tag">Uttar Pradesh</span><span class="region-tag">Puducherry</span>
+                    <span class="region-tag">Punjab</span><span class="region-tag">Rajasthan</span>
+                    <span class="region-tag">Sikkim</span><span class="region-tag">Uttarakhand</span>
+                    <span class="region-tag">Odisha</span>
+                </div>
+
+                <div style="margin-top: 30px; border-top: 1px solid #ddd; padding-top: 20px;">
+                    <h3>Documents</h3>
+                    <p>Get our detailed company profile and technical certifications.</p>
+                    <a href="jkm-eng.pdf" download class="btn-pdf">DOWNLOAD BROCHURE</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<section class="mission-box">
+    <div class="container">
+        <div class="mission-content">
+            <h2 style="color: #fff; border-left: none; padding: 0;">Our Mission</h2>
+            <p style="color: #ccc; text-align: center;">Our mission has always been to constantly improve our business policies as well as innovate our unique range of Industrial Prefabricated Office Cabins, Construction Site Office Containers, etc., in order to maximize the satisfaction of clients with our esteemed company. We also aim to strengthen our market position in the competitive domain by rendering an incredible business performance.</p>
+        </div>
+    </div>
+</section>
+
+<div style="text-align: center; padding: 40px 0;">
+    <a href="index.html" style="color: #0056b3; font-weight: bold; text-decoration: none;">← Return to Homepage</a>
+</div>
+
+</body>
+</html>

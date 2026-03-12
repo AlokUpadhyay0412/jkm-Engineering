@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products | JKM Engineering Work</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-red: #b30000;
+            --dark-blue: #004a99;
+            --bg-gray: #f4f7f6;
+            --text-main: #333;
+        }
+        body { margin: 0; background: var(--bg-gray); font-family: 'Montserrat', sans-serif; color: var(--text-main); line-height: 1.6; }
+
+        /* Modern Header */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('src/yus.jpg') center/cover no-repeat;
+            padding: 120px 20px;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 60px;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        /* Product Card Styling */
+        .product-card {
+            background: #fff;
+            border-radius: 12px;
+            display: flex;
+            margin-bottom: 40px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            flex-wrap: wrap;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+
+        /* Image Box as Button */
+        .img-box {
+            flex: 0 0 350px;
+            min-height: 250px;
+            background: #000;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
+        .img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s ease;
+        }
+        .img-box:hover img {
+            opacity: 0.7;
+            transform: scale(1.05);
+        }
+        /* Zoom Icon/Text on hover */
+        .img-box::after {
+            content: "🔍 VIEW DETAILS";
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+            opacity: 0;
+            transition: 0.3s;
+            border: 2px solid white;
+            padding: 10px 15px;
+            white-space: nowrap;
+        }
+        .img-box:hover::after { opacity: 1; }
+
+        .content-box { flex: 1; padding: 30px; min-width: 320px; position: relative; }
+
+        .price-tag { font-size: 20px; font-weight: 700; color: var(--primary-red); margin: 10px 0; }
+
+        .spec-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 20px;
+            font-size: 14px;
+            margin: 20px 0;
+            background: #fafafa;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .btn-main {
+            background: var(--primary-red);
+            color: #fff;
+            padding: 14px 45px;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+        .btn-main:hover { background: #8e0000; letter-spacing: 1px; }
+
+        .btn-outline {
+            position: absolute; top: 25px; right: 25px;
+            background: transparent;
+            color: var(--primary-red);
+            border: 1.5px solid var(--primary-red);
+            padding: 8px 15px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 11px;
+            text-transform: uppercase;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .btn-outline:hover { background: var(--primary-red); color: #fff; }
+
+        /* MODAL STYLING */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .close {
+            position: absolute;
+            top: 15px; right: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .img-box { flex: 0 0 100%; height: 250px; }
+            .btn-outline { position: static; margin-bottom: 15px; display: inline-block; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="hero">
+    <h1 style="font-size: 48px; font-weight: 700; margin: 0;">JKM ENGINEERING WORK</h1>
+    <p style="font-size: 18px; opacity: 0.9; max-width: 700px; margin: 20px auto;">Leading Manufacturers and Suppliers of Heavy-Duty Portable Containers Across India</p>
+</header>
+
+<div class="container">
+
+    <section style="background: #fff; padding: 40px; border-radius: 12px; margin-bottom: 60px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+        <h2 style="color: var(--dark-blue); font-size: 28px; margin-top: 0;">Premium Office Containers</h2>
+        <p style="color: #666; font-size: 16px;">
+            Our Office Containers are featured with astounding durability, optimum space utilization, and gorgeous interiors. With over 4 years of experience, JKM Engineering is a trusted name for:
+        </p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 30px;">
+            <div style="padding: 15px; border-left: 3px solid var(--primary-red); background: #fdfdfd;">
+                <strong>Easy Transport</strong><br><small>Perfect for temporary sites</small>
+            </div>
+            <div style="padding: 15px; border-left: 3px solid var(--primary-red); background: #fdfdfd;">
+                <strong>Custom Interiors</strong><br><small>Tailored to your needs</small>
+            </div>
+            <div style="padding: 15px; border-left: 3px solid var(--primary-red); background: #fdfdfd;">
+                <strong>Space Efficient</strong><br><small>Ample room for storage</small>
+            </div>
+        </div>
+    </section>
+
+    <h2 style="text-align: center; margin-bottom: 50px; font-size: 32px; letter-spacing: 2px;">PRODUCT CATALOG</h2>
+
+    <div class="product-card">
+        <div class="img-box" onclick="showModal('20ft. Office Container', '₹2,10,000 / Piece', 'Material: Steel | Roof: Steel | Color: Customizable. High durability steel container suitable for site offices.')">
+            <img src="src/20ft-office.jpg" alt="20ft Office Container">
+        </div>
+        <div class="content-box">
+            <button class="btn-outline">Call Back</button>
+            <h3 style="color: var(--dark-blue); font-size: 24px; margin: 0;">20ft. Office Container</h3>
+            <div class="price-tag">₹2,10,000 / Piece</div>
+            <div class="spec-grid">
+                <div><strong>Material:</strong> Steel</div>
+                <div><strong>Roof:</strong> Steel</div>
+                <div><strong>Delivery:</strong> 6-7 Days</div>
+                <div><strong>Supply:</strong> 10-5 Per Day</div>
+            </div>
+            <div style="text-align: center;"><button class="btn-main">Send Inquiry</button></div>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <div class="img-box" onclick="showModal('40ft. Office Container', '₹4,40,000 / Piece', 'Color: Blue | Material: Mild Steel | Internal Dimension: 39.7ft x 9.7ft. Spacious and robust for large scale operations.')">
+            <img src="src/40ft-container.jpg" alt="40ft Office Container">
+        </div>
+        <div class="content-box">
+            <button class="btn-outline">Call Back</button>
+            <h3 style="color: var(--dark-blue); font-size: 24px; margin: 0;">40ft. Office Container</h3>
+            <div class="price-tag">₹4,40,000 / Piece</div>
+            <div class="spec-grid">
+                <div><strong>Color:</strong> Blue</div>
+                <div><strong>Length:</strong> 40ft</div>
+                <div><strong>Material:</strong> Mild Steel</div>
+                <div><strong>Internal:</strong> 39.7ft x 9.7ft</div>
+            </div>
+            <div style="text-align: center;"><button class="btn-main">Send Inquiry</button></div>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <div class="img-box" onclick="showModal('Bunk House Container', '₹2,35,000 / Piece', 'Wall: Container Grade | Floor: Ply | Window: Aluminum. Specialized portable housing solution with heavy insulation.')">
+            <img src="src/bunk-house.jpg" alt="Bunk House">
+        </div>
+        <div class="content-box">
+            <button class="btn-outline">Call Back</button>
+            <h3 style="color: var(--dark-blue); font-size: 24px; margin: 0;">Bunk House Container</h3>
+            <div class="price-tag">₹2,35,000 / Piece</div>
+            <div class="spec-grid">
+                <div><strong>Wall:</strong> Container</div>
+                <div><strong>Floor:</strong> Ply</div>
+                <div><strong>Window:</strong> Aluminum</div>
+                <div><strong>Roof:</strong> Steel</div>
+            </div>
+            <div style="text-align: center;"><button class="btn-main">Send Inquiry</button></div>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <div class="img-box" onclick="showModal('20ft. Prefab Office Container', '₹1,90,000 / Piece', 'Material: Mild steel | Capacity: 2 Ton/day | Height: 8.6ft. Quickly deployable prefabricated unit for immediate office use.')">
+            <img src="src/20ft-prefab.jpg" alt="Prefab Container">
+        </div>
+        <div class="content-box">
+            <button class="btn-outline">Call Back</button>
+            <h3 style="color: var(--dark-blue); font-size: 24px; margin: 0;">20ft. Prefab Office Container</h3>
+            <div class="price-tag">₹1,90,000 / Piece</div>
+            <div class="spec-grid">
+                <div><strong>Material:</strong> Mild steel</div>
+                <div><strong>Capacity:</strong> 2 Ton/day</div>
+                <div><strong>Length:</strong> 20ft</div>
+                <div><strong>Height:</strong> 8.6ft</div>
+            </div>
+            <div style="text-align: center;"><button class="btn-main">Send Inquiry</button></div>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <div class="img-box" onclick="showModal('Premium Office Container', '₹2,20,000 / Piece', 'Floor Load: 10,000 kg | Ply: 25mm | Material: Steel. High weight-bearing capacity container with premium interior finishing.')">
+            <img src="src/office-container-interior.jpg" alt="Office Container Interior">
+        </div>
+        <div class="content-box">
+            <button class="btn-outline">Call Back</button>
+            <h3 style="color: var(--dark-blue); font-size: 24px; margin: 0;">Premium Office Container</h3>
+            <div class="price-tag">₹2,20,000 / Piece</div>
+            <div class="spec-grid">
+                <div><strong>Floor Load:</strong> 10,000 kg</div>
+                <div><strong>Ply:</strong> 25mm Ply</div>
+                <div><strong>Dim:</strong> 40ft x 10ft x 8.6ft</div>
+                <div><strong>Material:</strong> Steel</div>
+            </div>
+            <div style="text-align: center;"><button class="btn-main">Send Inquiry</button></div>
+        </div>
+    </div>
+
+</div>
+
+<div id="productModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modalTitle" style="color: var(--dark-blue); margin-bottom: 5px;"></h2>
+        <div id="modalPrice" class="price-tag" style="margin-bottom: 20px;"></div>
+        <hr style="border: 0; border-top: 1px solid #eee;">
+        <p id="modalBody" style="font-size: 16px; color: #555; margin-top: 20px;"></p>
+        <div style="margin-top: 30px; text-align: center;">
+            <button class="btn-main" onclick="closeModal()">Close Details</button>
+        </div>
+    </div>
+</div>
+
+<footer style="background: #1a1a1a; color: #fff; padding: 40px 20px; text-align: center; margin-top: 60px;">
+    <p>&copy; 2026 JKM Engineering Work. All Rights Reserved.</p>
+</footer>
+
+<script>
+    // Function to open modal and populate data
+    function showModal(title, price, description) {
+        document.getElementById('modalTitle').innerText = title;
+        document.getElementById('modalPrice').innerText = price;
+        document.getElementById('modalBody').innerText = description;
+        document.getElementById('productModal').style.display = 'flex';
+    }
+
+    // Function to close modal
+    function closeModal() {
+        document.getElementById('productModal').style.display = 'none';
+    }
+
+    // Close modal if user clicks outside of the content box
+    window.onclick = function(event) {
+        let modal = document.getElementById('productModal');
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>
